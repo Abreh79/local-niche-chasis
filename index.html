@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[BUSINESS_NAME] — Precision Auto Detailing &amp; Tinting in [CITY_NAME]</title>
+<meta name="description" content="[BUSINESS_NAME] provides premium ceramic coating, paint correction, and window tinting in [CITY_NAME]. Book your service online in minutes.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "[BUSINESS_NAME]",
+  "image": "[LOGO_OR_STOREFRONT_IMAGE_URL]",
+  "@id": "[BUSINESS_WEBSITE_URL]",
+  "url": "[BUSINESS_WEBSITE_URL]",
+  "telephone": "[PHONE_NUMBER]",
+  "priceRange": "[PRICE_RANGE]",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "[STREET_ADDRESS]",
+    "addressLocality": "[CITY_NAME]",
+    "addressRegion": "[STATE_ABBR]",
+    "postalCode": "[ZIP_CODE]",
+    "addressCountry": "[COUNTRY_CODE]"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "[LATITUDE]",
+    "longitude": "[LONGITUDE]"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "[OPENING_TIME]",
+      "closes": "[CLOSING_TIME]"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Saturday"],
+      "opens": "[SAT_OPENING_TIME]",
+      "closes": "[SAT_CLOSING_TIME]"
+    }
+  ],
+  "sameAs": [
+    "[INSTAGRAM_URL]",
+    "[FACEBOOK_URL]",
+    "[GOOGLE_BUSINESS_PROFILE_URL]"
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "[AVG_RATING]",
+    "reviewCount": "[REVIEW_COUNT]"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "[PRIMARY_SERVICE_TYPE]",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "[BUSINESS_NAME]"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "[CITY_NAME]"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "[BUSINESS_NAME] Service Catalog",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "[SERVICE_1_NAME]" },
+        "priceCurrency": "[CURRENCY_CODE]",
+        "price": "[SERVICE_1_STARTING_PRICE]"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "[SERVICE_2_NAME]" },
+        "priceCurrency": "[CURRENCY_CODE]",
+        "price": "[SERVICE_2_STARTING_PRICE]"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "[SERVICE_3_NAME]" },
+        "priceCurrency": "[CURRENCY_CODE]",
+        "price": "[SERVICE_3_STARTING_PRICE]"
+      }
+    ]
+  }
+}
+</script>
+
+<style>
+  /* ============================================
+     TOKENS — swap these to re-skin the whole site
+     ============================================ */
+  :root{
+    /* type */
+    --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+    /* color — gunmetal chassis, xenon-cyan detail, caliper-red action */
+    --bg: #0a0d12;
+    --bg-elevated: #10141b;
+    --surface: #151a22;
+    --surface-hover: #1b212b;
+    --border: #262d38;
+    --border-strong: #3a4353;
+
+    --text: #eef1f5;
+    --text-muted: #8b95a5;
+    --text-faint: #5a6273;
+
+    --accent: #2be6cf;           /* xenon cyan — trust / precision */
+    --accent-soft: rgba(43, 230, 207, 0.10);
+    --accent-border: rgba(43, 230, 207, 0.35);
+
+    --cta: #ff4b2b;               /* caliper red — action */
+    --cta-hover: #ff6a4a;
+    --cta-text: #0a0d12;
+
+    --star: #2be6cf;
+
+    /* shape */
+    --radius-sm: 2px;
+    --radius-md: 4px;
+    --container: 1120px;
+
+    /* motion */
+    --ease: cubic-bezier(.4,0,.2,1);
+  }
+
+  *{ box-sizing: border-box; margin: 0; padding: 0; }
+
+  html{ scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 76px; /* room for mobile sticky CTA */
+  }
+
+  a{ color: inherit; text-decoration: none; }
+  ul{ list-style: none; }
+  img{ max-width: 100%; display: block; }
+
+  :focus-visible{
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .container{
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .eyebrow{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  h1, h2, h3{
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    font-weight: 600;
+    line-height: 1.1;
+  }
+
+  /* ============================================
+     HEADER
+     ============================================ */
+  .site-header{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(10,13,18,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .site-header .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .logo{
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .logo span{ color: var(--accent); }
+  .header-actions{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .header-phone{
+    display: none;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  @media (min-width: 640px){
+    .header-phone{ display: inline-block; }
+  }
+  .btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: var(--radius-sm);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background .18s var(--ease), border-color .18s var(--ease), transform .12s var(--ease);
+    white-space: nowrap;
+  }
+  .btn:active{ transform: scale(0.98); }
+  .btn-cta{
+    background: var(--cta);
+    color: var(--cta-text);
+    padding: 11px 20px;
+  }
+  .btn-cta:hover{ background: var(--cta-hover); }
+  .btn-ghost{
+    background: transparent;
+    border-color: var(--border-strong);
+    color: var(--text);
+    padding: 10px 18px;
+  }
+  .btn-ghost:hover{ border-color: var(--accent); color: var(--accent); }
+  .btn-sm{ padding: 8px 14px; font-size: 13px; }
+
+  /* ============================================
+     HERO
+     ============================================ */
+  .hero{
+    position: relative;
+    padding: 64px 0 0;
+    overflow: hidden;
+    background:
+      radial-gradient(60% 50% at 80% 0%, rgba(43,230,207,0.10) 0%, transparent 60%),
+      radial-gradient(50% 40% at 10% 10%, rgba(255,75,43,0.06) 0%, transparent 60%);
+  }
+  .hero::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: linear-gradient(to bottom, black, transparent 80%);
+    pointer-events: none;
+  }
+  .hero-inner{
+    position: relative;
+    max-width: 700px;
+    padding: 40px 0 56px;
+  }
+  .hero .eyebrow{ margin-bottom: 18px; display: block; }
+  .hero h1{
+    font-size: clamp(34px, 7vw, 56px);
+    margin-bottom: 18px;
+  }
+  .hero h1 em{
+    font-style: normal;
+    color: var(--accent);
+  }
+  .hero p{
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 46ch;
+    margin-bottom: 32px;
+  }
+  .hero-actions{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+  .hero-actions .btn{ padding: 15px 26px; font-size: 15px; }
+
+  /* spec strip — dyno-printout style stat row */
+  .spec-strip{
+    border-top: 1px solid var(--border);
+    background: var(--bg-elevated);
+  }
+  .spec-strip ul{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .spec-strip li{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    padding: 14px 22px;
+    border-right: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .spec-strip li:last-child{ border-right: none; }
+  .spec-strip li strong{ color: var(--text); font-weight: 600; }
+  .spec-strip .dot{ color: var(--accent); margin-right: 6px; }
+
+  /* ============================================
+     SECTION SHARED
+     ============================================ */
+  .section{ padding: 72px 0; }
+  .section-head{
+    max-width: 560px;
+    margin-bottom: 40px;
+  }
+  .section-head .eyebrow{ display: block; margin-bottom: 12px; }
+  .section-head h2{ font-size: clamp(26px, 4.5vw, 36px); margin-bottom: 12px; }
+  .section-head p{ color: var(--text-muted); font-size: 15px; }
+
+  /* ============================================
+     SERVICES GRID — HUD corner-bracket cards
+     ============================================ */
+  .services-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  @media (min-width: 780px){
+    .services-grid{ grid-template-columns: repeat(3, 1fr); }
+  }
+  .service-card{
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 28px 24px 24px;
+    transition: border-color .2s var(--ease), background .2s var(--ease);
+  }
+  .service-card:hover{
+    border-color: var(--border-strong);
+    background: var(--surface-hover);
+  }
+  /* HUD corner brackets, intensify on hover */
+  .service-card::before,
+  .service-card::after{
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--accent-border);
+    opacity: 0.55;
+    transition: opacity .2s var(--ease), border-color .2s var(--ease);
+  }
+  .service-card::before{
+    top: -1px; left: -1px;
+    border-right: none; border-bottom: none;
+  }
+  .service-card::after{
+    bottom: -1px; right: -1px;
+    border-left: none; border-top: none;
+  }
+  .service-card:hover::before,
+  .service-card:hover::after{
+    opacity: 1;
+    border-color: var(--accent);
+  }
+  .service-icon{
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .service-card h3{
+    font-size: 18px;
+    margin-bottom: 10px;
+    letter-spacing: 0.02em;
+  }
+  .service-card p{
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .service-meta{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+  .service-price{
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-faint);
+  }
+  .service-price strong{ color: var(--text); font-size: 15px; }
+  .service-link{
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .service-link:hover{ text-decoration: underline; }
+
+  /* ============================================
+     SOCIAL PROOF
+     ============================================ */
+  .proof-strip{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 32px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .stars{ color: var(--star); letter-spacing: 2px; font-size: 15px; }
+
+  .testimonials{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  @media (min-width: 780px){
+    .testimonials{ grid-template-columns: repeat(3, 1fr); }
+  }
+  .testimonial-card{
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 24px;
+  }
+  .testimonial-card .stars{ margin-bottom: 16px; display: block; }
+  .testimonial-card p{
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  .testimonial-author{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .author-avatar{
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .author-name{ font-size: 13px; font-weight: 600; }
+  .author-meta{ font-size: 12px; color: var(--text-faint); font-family: var(--font-mono); }
+
+  /* ============================================
+     FINAL CTA BAND
+     ============================================ */
+  .cta-band{
+    background: var(--bg-elevated);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 64px 0;
+    text-align: center;
+  }
+  .cta-band h2{
+    font-size: clamp(24px, 5vw, 34px);
+    margin-bottom: 14px;
+  }
+  .cta-band p{
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    max-width: 48ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================
+     FOOTER
+     ============================================ */
+  .site-footer{ padding: 48px 0 40px; }
+  .footer-grid{
+    display: grid;
+    gap: 28px;
+    margin-bottom: 32px;
+  }
+  @media (min-width: 640px){
+    .footer-grid{ grid-template-columns: 2fr 1fr 1fr; }
+  }
+  .footer-brand p{
+    color: var(--text-faint);
+    font-size: 13px;
+    margin-top: 10px;
+    max-width: 34ch;
+  }
+  .footer-col h4{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-faint);
+    margin-bottom: 14px;
+  }
+  .footer-col li{ margin-bottom: 10px; }
+  .footer-col a{ font-size: 14px; color: var(--text-muted); }
+  .footer-col a:hover{ color: var(--accent); }
+  .footer-bottom{
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+
+  /* ============================================
+     MOBILE STICKY CTA
+     ============================================ */
+  .mobile-cta{
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 60;
+    background: var(--bg-elevated);
+    border-top: 1px solid var(--border);
+    padding: 10px 16px;
+    display: flex;
+    gap: 10px;
+  }
+  .mobile-cta .btn{ flex: 1; padding: 13px; font-size: 14px; }
+  .mobile-cta .btn-ghost{ flex: 0 0 auto; padding: 13px 16px; }
+  @media (min-width: 900px){
+    .mobile-cta{ display: none; }
+    body{ padding-bottom: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="#top" class="logo">[BUSINESS<span>.</span>NAME]</a>
+    <div class="header-actions">
+      <a href="tel:[PHONE_NUMBER]" class="header-phone">[PHONE_NUMBER]</a>
+      <a href="#book" class="btn btn-cta btn-sm">Book Service</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <span class="eyebrow">[CITY_NAME] · MOBILE &amp; IN-SHOP</span>
+      <h1>Show up clean.<br>Stay <em>protected</em>.</h1>
+      <p>[BUSINESS_NAME] delivers dealership-grade detailing, ceramic coating, and window tinting — booked online, done right the first time.</p>
+      <div class="hero-actions">
+        <a href="#book" class="btn btn-cta">Book Service →</a>
+        <a href="#services" class="btn btn-ghost">See Services</a>
+      </div>
+    </div>
+
+    <div class="spec-strip">
+      <div class="container">
+        <ul>
+          <li><span class="dot">★</span><strong>[AVG_RATING]</strong>&nbsp;rating</li>
+          <li><strong>[REVIEW_COUNT]+</strong>&nbsp;vehicles detailed</li>
+          <li><strong>[CITY_NAME]</strong>&nbsp;local &amp; mobile</li>
+          <li>Same-day booking available</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Core Services</span>
+        <h2>Built for the daily driver and the weekend build.</h2>
+        <p>Three packages that cover the full spectrum — from a same-day refresh to long-term paint protection.</p>
+      </div>
+
+      <div class="services-grid">
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12l4-7h10l4 7M3 12v6a1 1 0 001 1h1a1 1 0 001-1v-1h12v1a1 1 0 001 1h1a1 1 0 001-1v-6M3 12h18M6 15h.01M18 15h.01"/></svg>
+          </div>
+          <h3>Ceramic Coating</h3>
+          <p>Multi-year hydrophobic protection with a hand-polished finish. UV, swirl, and stain resistant.</p>
+          <div class="service-meta">
+            <span class="service-price">from&nbsp;<strong>$[SERVICE_1_PRICE]</strong></span>
+            <a href="#book" class="service-link">Book →</a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 010 18M8 8l8 8M16 8l-8 8"/></svg>
+          </div>
+          <h3>Paint Correction</h3>
+          <p>Multi-stage polish that removes swirl marks, oxidation, and light scratches before protection goes on.</p>
+          <div class="service-meta">
+            <span class="service-price">from&nbsp;<strong>$[SERVICE_2_PRICE]</strong></span>
+            <a href="#book" class="service-link">Book →</a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 9h18M9 9v10"/></svg>
+          </div>
+          <h3>Window Tinting</h3>
+          <p>Precision-cut ceramic film for heat rejection and privacy — backed by a lifetime warranty.</p>
+          <div class="service-meta">
+            <span class="service-price">from&nbsp;<strong>$[SERVICE_3_PRICE]</strong></span>
+            <a href="#book" class="service-link">Book →</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOCIAL PROOF ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Trusted Locally</span>
+        <h2>What [CITY_NAME] drivers are saying.</h2>
+      </div>
+
+      <div class="proof-strip">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span>[AVG_RATING] average across [REVIEW_COUNT]+ verified reviews</span>
+      </div>
+
+      <div class="testimonials">
+
+        <article class="testimonial-card">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <p>"[TESTIMONIAL_QUOTE_1 — e.g. Booked online, dropped the car off, picked it up looking better than the day I bought it.]"</p>
+          <div class="testimonial-author">
+            <span class="author-avatar" aria-hidden="true">[I]</span>
+            <div>
+              <div class="author-name">[REVIEWER_NAME_1]</div>
+              <div class="author-meta">[VEHICLE_1]</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <p>"[TESTIMONIAL_QUOTE_2 — e.g. The ceramic coating still beads water eight months later. Worth every dollar.]"</p>
+          <div class="testimonial-author">
+            <span class="author-avatar" aria-hidden="true">[I]</span>
+            <div>
+              <div class="author-name">[REVIEWER_NAME_2]</div>
+              <div class="author-meta">[VEHICLE_2]</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <p>"[TESTIMONIAL_QUOTE_3 — e.g. Tint job was clean, no bubbles, no gaps. Scheduling text reminders were a nice touch.]"</p>
+          <div class="testimonial-author">
+            <span class="author-avatar" aria-hidden="true">[I]</span>
+            <div>
+              <div class="author-name">[REVIEWER_NAME_3]</div>
+              <div class="author-meta">[VEHICLE_3]</div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="cta-band" id="book">
+    <div class="container">
+      <h2>Ready when you are.</h2>
+      <p>Pick a service, choose a time, and we'll handle the rest. Most bookings confirmed within the hour.</p>
+      <a href="#" class="btn btn-cta">Book Service →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">[BUSINESS<span>.</span>NAME]</div>
+        <p>[SHORT_BUSINESS_DESCRIPTION — one line on your specialty and service area.]</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Ceramic Coating</a></li>
+          <li><a href="#services">Paint Correction</a></li>
+          <li><a href="#services">Window Tinting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:[PHONE_NUMBER]">[PHONE_NUMBER]</a></li>
+          <li><a href="mailto:[EMAIL_ADDRESS]">[EMAIL_ADDRESS]</a></li>
+          <li><a href="#">[STREET_ADDRESS], [CITY_NAME]</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> [BUSINESS_NAME]. All rights reserved.</span>
+      <span>[CITY_NAME], [STATE_ABBR]</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile thumb-zone CTA bar -->
+<div class="mobile-cta">
+  <a href="tel:[PHONE_NUMBER]" class="btn btn-ghost" aria-label="Call now">Call</a>
+  <a href="#book" class="btn btn-cta">Book Service →</a>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
