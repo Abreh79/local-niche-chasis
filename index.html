@@ -104,9 +104,45 @@
   /* ============================================
      TOKENS — swap these to re-skin the whole site
      ============================================ */
-  :root{
+  
     /* type */
-    --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+:root {
+  /* Core surfaces */
+  --color-bg: #0d0f0e;              /* near-black charcoal base */
+  --color-surface: #171a19;         /* card / panel background */
+  --color-surface-alt: #1f2322;     /* raised surface, modals */
+  --color-border: #2c302f;          /* muted hairline borders */
+
+  /* Brand accent — electric neon yellow/green */
+  --color-primary: #d4ff2b;         /* CTA fills, active states */
+  --color-primary-hover: #e8ff5c;   /* brighter on hover */
+  --color-primary-muted: #8fae1b;   /* disabled / subtle accent */
+
+  /* Secondary accent (deep neon green, for tags/highlights) */
+  --color-accent-2: #39ff8f;
+
+  /* Text */
+  --color-text: #f4f5f2;            /* primary body text */
+  --color-text-muted: #9a9d98;      /* secondary / captions */
+  --color-text-on-primary: #0d0f0e; /* text sitting on neon buttons */
+
+  /* State */
+  --color-success: #39ff8f;
+  --color-warning: #ffb703;
+  --color-danger: #ff3b3b;
+
+  /* Effects */
+  --shadow-glow: 0 0 24px rgba(212, 255, 43, 0.35);
+  --radius-md: 8px;
+  --radius-lg: 14px;
+}    
+
+  *{ box-sizing: border-box; margin: 0; padding: 0; }
+
+  html{ scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavio--font-display: 'Oswald', 'Arial Narrow', sans-serif;
     --font-body: 'Inter', -apple-system, sans-serif;
     --font-mono: 'JetBrains Mono', 'Courier New', monospace;
 
@@ -139,14 +175,7 @@
 
     /* motion */
     --ease: cubic-bezier(.4,0,.2,1);
-  }
-
-  *{ box-sizing: border-box; margin: 0; padding: 0; }
-
-  html{ scroll-behavior: smooth; }
-
-  @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior: auto; }
+  }r: auto; }
     *{ animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   }
 
